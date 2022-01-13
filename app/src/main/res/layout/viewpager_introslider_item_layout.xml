@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:paddingTop="@dimen/default_16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+   >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_title"
+        android:text="Welcome to JB"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sub_text"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_subtitle"
+            android:text="Find your own shop"
+            android:textSize="@dimen/text_head"/>
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/accept"
+            android:layout_marginLeft="@dimen/default_8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_check_circle_24"/>
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/reject"
+            android:layout_marginLeft="@dimen/default_8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_cancel_24"/>
+    </LinearLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        app:cardCornerRadius="@dimen/default_16dp"
+        android:layout_margin="@dimen/default_8dp">
+        <ImageView
+            android:scaleType="centerCrop"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:src="@color/black"
+            android:adjustViewBounds="true"
+            android:id="@+id/iv"/>
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/bt_prev"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reject"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/tv_skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/default_16dp"
+            android:layout_marginTop="@dimen/default_16dp"
+            android:layout_marginEnd="@dimen/default_16dp"
+            android:layout_marginBottom="@dimen/default_16dp"
+            android:text="SKIP"
+            android:textColor="@color/design_default_color_primary"
+            android:textSize="@dimen/text_head"
+            android:translationZ="10dp" />
+        <Button
+            android:layout_alignParentRight="true"
+            android:id="@+id/bt_next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Accept"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+
+
+</LinearLayout>
