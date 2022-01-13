@@ -8,8 +8,8 @@ import com.jayesh.shadi.model.Profile
 @Dao
 abstract class ProfileTableDao {
 
-    @Query("Select * from `profile` where id > :lastId order by id limit :limit")
-    abstract fun getCategory(limit:Int,lastId:Int): LiveData<MutableList<ProfileTable>>?
+    @Query("Select * from `profile` order by id")
+    abstract fun getCategory(): LiveData<MutableList<ProfileTable>>?
 
     @Query("Select `Email` from `profile`")
     abstract fun getProfileIds(): MutableList<String>?

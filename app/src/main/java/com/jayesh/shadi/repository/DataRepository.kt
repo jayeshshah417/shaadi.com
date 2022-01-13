@@ -40,6 +40,9 @@ public class DataRepository() {
     }
 
 
+    fun getDao():ProfileTableDao{
+        return profileDao
+    }
 
      fun getData(page:Int,results:Int,callbacks: ModelCallbacks){
          Log.e("online fetch ","page "+page+" result"+results)
@@ -80,7 +83,7 @@ public class DataRepository() {
     }
     fun getDataFromRoom(limit:Int,lastId:Int):LiveData<MutableList<ProfileTable>>{
         Log.e("Fetch room ","Limit "+limit+" lastId "+lastId)
-            listOfDataTable =  profileDao.getCategory(limit, lastId)!!
+            listOfDataTable =  profileDao.getCategory()!!
         if(listOfDataTable.value!=null) {
             Log.e("Fetch room ", "result " + listOfDataTable.value!!.size!!)
 

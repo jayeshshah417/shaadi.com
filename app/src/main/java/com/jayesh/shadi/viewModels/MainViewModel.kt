@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import com.jayesh.shadi.callback.ModelCallbacks
 import com.jayesh.shadi.repository.DataRepository
 import com.jayesh.shadi.room.ProfileTable
+import com.jayesh.shadi.room.ProfileTableDao
 
 
 class MainViewModel(application: Application) :
@@ -25,9 +26,13 @@ class MainViewModel(application: Application) :
             Log.e("fetching online ","")
             getDataOnline((profileList.size/results)+1,results)
         }
-        dataReturned1 = repository.getDataFromRoom(results,page)
+
         Log.e("fetching online ","")
         return dataReturned1
+    }
+    public fun getNextData(page: Int, results: Int, profileList: MutableList<ProfileTable>){
+        getDataOnline(page,results)
+
     }
     public fun setCallBack(callbacks: ModelCallbacks){
         this.callBack = callbacks
@@ -46,5 +51,9 @@ class MainViewModel(application: Application) :
 
     fun updateProfileStatus(status:String,email:String){
         repository.updateStatus(status,email)
+    }
+
+    fun getDao():ProfileTableDao{
+        return repository!!.getDao()
     }
 }

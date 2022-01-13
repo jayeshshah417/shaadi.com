@@ -7,13 +7,11 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
-import com.jayesh.shadi.model.Profile
-import com.jayesh.shadi.model.Results
 import com.jayesh.shadi.room.ProfileTable
 import com.squareup.picasso.Picasso
 
-internal class IntrosliderViewPagerAdapter(private var imagesList: MutableList<ProfileTable>, private var context:Context,private var profileCallBack:ProfileCallbacks):
-    RecyclerView.Adapter<IntrosliderViewPagerAdapter.MyViewHolder>() {
+internal class ProfileViewPagerAdapter(private var imagesList: MutableList<ProfileTable>, private var context:Context, private var profileCallBack:ProfileCallbacks):
+    RecyclerView.Adapter<ProfileViewPagerAdapter.MyViewHolder>() {
     internal inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view){
         var iv_dashboard: ImageView = view.findViewById(R.id.iv)
         var tv_title: TextView = view.findViewById(R.id.tv_title)
@@ -91,6 +89,11 @@ internal class IntrosliderViewPagerAdapter(private var imagesList: MutableList<P
 
     fun setData(categorylist:MutableList<ProfileTable>){
         this.imagesList = categorylist
+    }
+
+    fun replaceData(profile:ProfileTable,position: Int){
+        this.imagesList.removeAt(position)
+        this.imagesList.add(position,profile  )
     }
     fun getData():MutableList<ProfileTable>{
         return this.imagesList
